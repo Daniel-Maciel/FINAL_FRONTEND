@@ -1,0 +1,19 @@
+/* Navbar.css */
+.navbar {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+    background-color: #333;
+  }
+  
+  .navbar-item {
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+  }
+  
+  .navbar-item:hover {
+    background-color: #555;
+    border-radius: 5px;
+  }
+  

@@ -1,0 +1,17 @@
+/* Home.css */
+.home-container {
+    display: flex;
+    justify-content: space-around; /* Espacio uniforme entre los elementos */
+    align-items: center; /* Centrar verticalmente los elementos en el contenedor */
+    padding: 20px; /* Espacio alrededor del contenedor */
+  }
+  
+  .home-item {
+    margin: 0 10px; /* Espacio entre elementos */
+    padding: 10px 20px; /* Relleno interno para cada elemento */
+    background-color: #f0f0f0; /* Color de fondo */
+    border-radius: 8px; /* Bordes redondeados */
+    text-align: center;
+    font-weight: bold;
+  }
+  

@@ -2,7 +2,8 @@
 import React from 'react';
 
 const Nosotros= () => {
-  return <h1>Página de Nosotros</h1>;
+  return <h1>Página de Nosotros</h1>,
+         <h1>Página de Nosotros</h1>;
 };
 
 export default Nosotros;

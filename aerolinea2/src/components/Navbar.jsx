@@ -1,24 +1,28 @@
 // components/Navbar.jsx
 import React from 'react';
 import { Link } from 'react-router-dom';
+import '../style/Navbar.css';
 
 const Navbar = () => {
   return (
-    <nav>
-        <ul>
-            <li><Link to="/">Home</Link></li>
+    <nav className="navbar">
+      <Link to="/" className="navbar-item">Home</Link>
+      
+      <Link to="/vuelos" className="navbar-item">Vuelos</Link>
 
-            <li><Link to="/vuelos">Vuelos</Link></li>
+      <Link to="/asientos" className="navbar-item">Asientos</Link>
 
-            <li><Link to="/asientos">Asientos</Link></li>
+      <Link to="/aviones" className="navbar-item">Aviones</Link>
 
-            <li><Link to="/aviones">Aviones</Link></li>
+      <Link to="/reservas" className="navbar-item">Reservas</Link>
 
-            <li><Link to="/nosotros">Nosotros</Link></li>
-            
-      </ul>
+      <Link to="/nosotros" className="navbar-item">Nosotros</Link>
+
+      <Link to="/login" className="navbar-item">Login</Link>
+
     </nav>
   );
 };
 
 export default Navbar;
+

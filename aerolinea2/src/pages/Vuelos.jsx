@@ -1,16 +1,4 @@
 // src/pages/Vuelo.jsx
-// import React from 'react';
-
-// const Vuelo = () => {
-//     return (
-//       <div>
-//         <h1>Bienvenido a la página de Vuelos</h1>
-//         <p>Esta es la página principal de todos nuestros vuelos</p>
-//       </div>
-//     );
-// };
-  
-// export default Vuelo;
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
@@ -73,15 +61,15 @@ export default function Vuelo() {
               <td>{new Date(vuelo.fecha_salida).toLocaleString()}</td>
               <td>{new Date(vuelo.fecha_llegada).toLocaleString()}</td>
               <td>
-                  {/* <Link to={`/Vuelo/edit/${vuelo.id}`} className='btn btn-primary'>
-                      <span className="material-symbols-outlined">editar</span>
-                  </Link> */}
+                  {<Link to={`/Vuelo/edit/${vuelo.id}`} className='btn btn-primary'>
+                      <span className="material-symbols-outlined">Editar</span>
+                  </Link> }
 
-                  {/* <button className='btn btn-danger' onClick={() => showModal(vehiculo.vehiculo_id)}>
+                  {<button className='btn btn-danger' onClick={() => showModal(vuelo.vuelo_id)}>
                       <span className="material-symbols-outlined">
-                          delete
+                          Eliminar
                       </span>
-                  </button> */}
+                  </button> }
               </td>
           </tr>
       )
