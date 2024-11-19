@@ -9,7 +9,7 @@ const Home = () => {
     <div>
       
       <h1>Bienvenido a la página Home</h1>
-      <p>Esta es la página principal </p>
+      
       <img src={imagen} alt="imagen" width="1340" />
     </div>
   );
