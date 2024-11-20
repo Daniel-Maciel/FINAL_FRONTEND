@@ -1,117 +1,85 @@
 /* Home.css */
-/* Estilos del contenedor principal */
-.home-container {
-  font-family: Arial, sans-serif;
-  color: #fff;
-}
-
-/* Encabezado */
-.header {
+/* Contenedor principal con imagen de fondo */
+.home {
+  height: 100vh; /* Ocupa toda la pantalla */
+  width: 100vw; /* Ocupa todo el ancho */
+  background: url('../assets/home.webp') no-repeat center center/cover; /* Imagen centrada */
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: flex-end; /* Coloca los elementos al final de la pantalla */
   align-items: center;
-  padding: 10px 20px;
-  background-color: rgba(0, 0, 0, 0.8);
-  position: fixed;
-  width: 100%;
-  top: 0;
-  z-index: 1000;
+  padding: 20px;
+  box-sizing: border-box;
+  color: white;
 }
 
-.logo {
-  font-size: 24px;
+/* Título principal */
+.home h1 {
+  font-size: 1.8rem;
   font-weight: bold;
-  color: white;
+  margin-bottom: 30px; /* Espaciado del título con el formulario */
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Sombra para visibilidad */
 }
 
-.nav-links a {
-  color: white;
-  text-decoration: none;
-  margin-left: 20px;
-  font-size: 18px;
+/* Contenedor del formulario */
+.buscador-vuelos {
+  background-color: rgba(0, 0, 0, 0.7); /* Fondo semitransparente */
+  padding: 20px 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  max-width: 800px;
+  margin-bottom: 50px; /* Espacio inferior */
 }
 
-.nav-links a:hover {
-  text-decoration: underline;
+/* Contenedor horizontal para los campos */
+.buscador-vuelos .form-row {
+  display: flex;
+  justify-content: space-between; /* Espaciado uniforme */
+  gap: 20px; /* Separación entre campos */
+  margin-bottom: 15px;
 }
 
-/* Elimina márgenes y rellenos predeterminados */
-* {
-  margin: 0;
-  padding: 0;
+/* Ajuste para cada campo individual */
+.buscador-vuelos .form-row .form-group {
+  flex: 1; /* Cada campo ocupa el mismo ancho */
+  display: flex;
+  flex-direction: column;
+}
+
+/* Estilo para los campos */
+.buscador-vuelos input {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  width: 100%;
   box-sizing: border-box;
 }
 
-/* Asegúrate de que el body ocupe toda la pantalla */
-body {
-  height: 100%;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-/* Imagen de fondo */
-.hero {
-  height: 100vh; /* Asegura que ocupe todo el alto de la pantalla */
-  width: 100vw; /* Asegura que ocupe todo el ancho de la pantalla */
-  background: url('../assets/home.webp') no-repeat center center; /* Imagen centrada */
-  background-size: cover; /* Asegura que la imagen cubra todo el área disponible */
-  display: flex;
-  justify-content: center; /* Centra el contenido horizontalmente */
-  align-items: center; /* Centra el contenido verticalmente */
-  position: relative; /* Permite colocar el contenido por encima de la imagen */
-}
-
-/* Estilo para el texto dentro de .hero */
-.hero-text {
-  text-align: center; /* Centra el texto */
+/* Botón de búsqueda */
+.buscador-vuelos button {
+  background-color: #ff5733;
   color: white;
-  font-size: 3rem;
-  z-index: 1; /* Asegura que el texto esté por encima de la imagen */
-  font-weight: bold;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  align-self: flex-end; /* Botón alineado a la derecha */
 }
 
-.hero-text h1 {
-  text-align: center; /* Centra el texto */
+.buscador-vuelos button:hover {
+  background-color: #c44124;
+}
+
+/* Ajuste para etiquetas */
+.buscador-vuelos label {
+  font-size: 1rem;
+  margin-bottom: 5px;
   color: white;
-  font-size:3rem;
-  z-index: 1; /* Asegura que el texto esté por encima de la imagen */
-  margin-top: 400px; /* Ajusta este valor según sea necesario */
-}
-
-/* Sección de vuelos */
-.flights-list {
-  padding: 20px;
-  background-color: #f5f5f5;
-  color: black;
-  margin-top: -50px;
-  border-radius: 10px;
-}
-
-.flights-list h2 {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.flights-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin: 0 auto;
-}
-
-.flights-table th,
-.flights-table td {
-  border: 1px solid #ddd;
-  padding: 10px;
-  text-align: center;
-}
-
-.flights-table th {
-  background-color: #333;
-  color: white;
-}
-
-.flights-table tr:nth-child(even) {
-  background-color: #f2f2f2;
+  display: block;
 }
