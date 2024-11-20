@@ -1,9 +1,10 @@
-// Login.jsx
+//Login.jsx
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useForm } from 'react-hook-form';
+import '../style/LoginForm.css'; 
 
 export default function LoginForm({ setIsAuthenticated }) {
     const confToast = {
@@ -18,7 +19,7 @@ export default function LoginForm({ setIsAuthenticated }) {
     };
 
     const navigate = useNavigate();
-    const { register, handleSubmit, formState: { errors }, watch } = useForm();
+    const { register, handleSubmit, formState: { errors } } = useForm();
 
     const onSubmit = handleSubmit(async (datos) => {
         const usuario = {
@@ -42,15 +43,9 @@ export default function LoginForm({ setIsAuthenticated }) {
             const body = await res.json();
 
             if (res.ok) {
-                // Guardar token y nombre del usuario
                 sessionStorage.setItem('token', body.token);
-
-                // Cambiar estado de autenticación en la aplicación principal
                 setIsAuthenticated(true);
-
                 toast.success(`Bienvenido ${body.datos.nombre}`, confToast);
-
-                // Redirigir al Home o una ruta específica
                 navigate("/");
             } else {
                 toast.error(body.message, confToast);
@@ -61,57 +56,60 @@ export default function LoginForm({ setIsAuthenticated }) {
     });
 
     return (
-        <section className='section_login'>
-            <h3 className='titulo_login'>Ingresa a tu cuenta</h3>
-            <form
-                onSubmit={onSubmit}
-                className="container_login">
-                <div>
-                    <label className='label_login'>Usuario o email</label>
-                    <input
-                        className='input_login'
-                        type="email"
-                        {...register('mail', {
-                            required: true,
-                            pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-                        })}
-                    />
-                    {errors.mail?.type === 'required' && (
-                        <div className="alert alert-danger mt-2" role="alert">
-                            Mail es requerido
+        <div className="login-background"> {/* Contenedor exclusivo para el fondo */}
+            <div className="login-container">
+                <div className="login-left">
+                    <h1>Bienvenido</h1>
+                </div>
+                <div className="login-right">
+                    <h3 className="titulo_login">Iniciar Sesión</h3>
+                    <form onSubmit={onSubmit} className="login-form">
+                        <div>
+                            <label className="label_login">Usuario o email</label>
+                            <input
+                                className="input_login"
+                                type="email"
+                                {...register('mail', {
+                                    required: true,
+                                    pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                                })}
+                            />
+                            {errors.mail?.type === 'required' && (
+                                <div className="alert_error">Email es requerido</div>
+                            )}
                         </div>
-                    )}
-                </div>
-                <div>
-                    <label className='label_login'>Contraseña</label>
-                    <input
-                        className='input_login'
-                        type="password"
-                        {...register('pass', {
-                            required: {
-                                value: true,
-                                message: 'Contraseña es requerida',
-                            },
-                            minLength: {
-                                value: 8,
-                                message: 'La contraseña debe tener al menos 8 caracteres',
-                            },
-                            maxLength: {
-                                value: 16,
-                                message: 'La contraseña debe tener máximo 16 caracteres',
-                            },
-                        })}
-                    />
-                    {errors.pass && (
-                        <div className="alert alert-danger mt-2" role="alert">
-                            {errors.pass.message}
+                        <div>
+                            <label className="label_login">Contraseña</label>
+                            <input
+                                className="input_login"
+                                type="password"
+                                {...register('pass', {
+                                    required: 'Contraseña es requerida',
+                                    minLength: {
+                                        value: 8,
+                                        message: 'La contraseña debe tener al menos 8 caracteres',
+                                    },
+                                    maxLength: {
+                                        value: 16,
+                                        message: 'La contraseña debe tener máximo 16 caracteres',
+                                    },
+                                })}
+                            />
+                            {errors.pass && <div className="alert_error">{errors.pass.message}</div>}
                         </div>
-                    )}
+                        <div className="div_btn">
+                            <button className="btn_login" type="submit">Iniciar Sesión</button>
+                            <button
+                                type="button"
+                                className="btn_register"
+                                onClick={() => navigate('/register')}
+                            >
+                                Registrarse
+                            </button>
+                        </div>
+                    </form>
                 </div>
-                <div className="div_btn">
-                    <input className='btn_login' type="submit" value="Iniciar Sesión" />
-                </div>
-            </form>
-        </section>
+            </div>
+        </div>
     );
 }

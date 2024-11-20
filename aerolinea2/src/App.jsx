@@ -17,14 +17,14 @@ function App() {
 
   return (
     <Router>
-      <Navbar />
+    <Navbar /> 
       <Routes>
         {/* Ruta abierta */}
         <Route path="/" element={<Home />} />
 
         {/* Ruta de login */}
         <Route path="/login" element={<Login setIsAuthenticated={setIsAuthenticated} />} />
-
+      
         {/* Rutas protegidas */}
         <Route
           path="/vuelos"

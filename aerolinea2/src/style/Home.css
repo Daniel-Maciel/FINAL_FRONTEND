@@ -1,17 +1,117 @@
 /* Home.css */
+/* Estilos del contenedor principal */
 .home-container {
-    display: flex;
-    justify-content: space-around; /* Espacio uniforme entre los elementos */
-    align-items: center; /* Centrar verticalmente los elementos en el contenedor */
-    padding: 20px; /* Espacio alrededor del contenedor */
-  }
-  
-  .home-item {
-    margin: 0 10px; /* Espacio entre elementos */
-    padding: 10px 20px; /* Relleno interno para cada elemento */
-    background-color: #f0f0f0; /* Color de fondo */
-    border-radius: 8px; /* Bordes redondeados */
-    text-align: center;
-    font-weight: bold;
-  }
-  
+  font-family: Arial, sans-serif;
+  color: #fff;
+}
+
+/* Encabezado */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: rgba(0, 0, 0, 0.8);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  margin-left: 20px;
+  font-size: 18px;
+}
+
+.nav-links a:hover {
+  text-decoration: underline;
+}
+
+/* Elimina márgenes y rellenos predeterminados */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Asegúrate de que el body ocupe toda la pantalla */
+body {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Imagen de fondo */
+.hero {
+  height: 100vh; /* Asegura que ocupe todo el alto de la pantalla */
+  width: 100vw; /* Asegura que ocupe todo el ancho de la pantalla */
+  background: url('../assets/home.webp') no-repeat center center; /* Imagen centrada */
+  background-size: cover; /* Asegura que la imagen cubra todo el área disponible */
+  display: flex;
+  justify-content: center; /* Centra el contenido horizontalmente */
+  align-items: center; /* Centra el contenido verticalmente */
+  position: relative; /* Permite colocar el contenido por encima de la imagen */
+}
+
+/* Estilo para el texto dentro de .hero */
+.hero-text {
+  text-align: center; /* Centra el texto */
+  color: white;
+  font-size: 3rem;
+  z-index: 1; /* Asegura que el texto esté por encima de la imagen */
+  font-weight: bold;
+}
+
+.hero-text h1 {
+  text-align: center; /* Centra el texto */
+  color: white;
+  font-size:3rem;
+  z-index: 1; /* Asegura que el texto esté por encima de la imagen */
+  margin-top: 400px; /* Ajusta este valor según sea necesario */
+}
+
+/* Sección de vuelos */
+.flights-list {
+  padding: 20px;
+  background-color: #f5f5f5;
+  color: black;
+  margin-top: -50px;
+  border-radius: 10px;
+}
+
+.flights-list h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.flights-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0 auto;
+}
+
+.flights-table th,
+.flights-table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: center;
+}
+
+.flights-table th {
+  background-color: #333;
+  color: white;
+}
+
+.flights-table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}

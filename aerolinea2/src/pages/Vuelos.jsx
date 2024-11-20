@@ -99,7 +99,7 @@ export default function Vuelo() {
                       <th>Destino</th>
                       <th>ID Avión</th>
                       <th>Fecha Salida</th>
-                     <th>Fecha Llegada</th>
+                      <th>Fecha Llegada</th>
              
                      </tr>
               </thead>
