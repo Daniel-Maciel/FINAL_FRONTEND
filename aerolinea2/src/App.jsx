@@ -10,6 +10,7 @@ import Login from './pages/Login';
 import Reservas from './pages/Reservas';
 import Navbar from './components/Navbar';
 import ProtectedRoute from './components/ProtectedRoute';
+import Register from './pages/Register';
 
 function App() {
   // Estado para manejar autenticación (ejemplo: falso por defecto)
@@ -24,6 +25,8 @@ function App() {
 
         {/* Ruta de login */}
         <Route path="/login" element={<Login setIsAuthenticated={setIsAuthenticated} />} />
+
+        <Route path="/register" element={<Register />} />
       
         {/* Rutas protegidas */}
         <Route

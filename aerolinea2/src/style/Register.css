@@ -1,0 +1,125 @@
+/*Register.css*/
+.register-background {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: url('../assets/Loginn.jpg') no-repeat center center;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+}
+
+/* Contenedor principal */
+.register-container {
+    display: flex;
+    flex-direction: column; /* Cambio aquí: de fila a columna */
+    width: 100%;
+    max-width: 900px;
+    background-color: #ffffff8e;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+    overflow: hidden;
+    padding: 20px;
+}
+
+/* Sección izquierda (Imagen) */
+.register-left {
+    flex: 1;
+    background: url('../assets/Loginn.jpg') no-repeat center center/cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    padding: 30px;
+    text-align: center;
+}
+
+.register-left h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.register-left p {
+    font-size: 18px;
+}
+
+/* Sección derecha (Formulario) */
+.register-right {
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.titulo_register {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Formulario: Organizado en columnas */
+.register-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Dos columnas */
+    gap: 15px;
+}
+
+/* Asegurarse que los campos ocupen una columna si no es necesario usar dos */
+.register-form div {
+    display: flex;
+    flex-direction: column;
+}
+
+.label_register {
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: #555;
+}
+
+.input_register,
+.select_register {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Para la última fila, hacer que ocupe toda la fila */
+.register-form .full-width {
+    grid-column: span 2;
+}
+
+/* Botones y selectores */
+.div_btn {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.btn_register {
+    padding: 10px 15px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+.btn_register:hover {
+    background-color: #0056b3;
+}
+
+.alert_error {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+}
