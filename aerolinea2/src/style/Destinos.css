@@ -1,0 +1,67 @@
+.destinos-container {
+    text-align: center;
+    margin: 50px auto;
+    padding: 20px;
+    max-width: 1200px; /* Ancho máximo */
+  }
+  
+  .destinos-container h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .destinos-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Cuatro columnas */
+    gap: 20px; /* Espaciado entre tarjetas */
+    justify-content: center;
+  }
+  
+  .destino-card {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    transition: transform 0.3s ease;
+  }
+  
+  .destino-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .destino-card img {
+    width: 100%; /* La imagen ocupará todo el ancho */
+    height: 150px; /* Altura fija para las imágenes */
+    object-fit: cover; /* Ajuste de la imagen dentro del contenedor */
+  }
+  
+  .destino-info {
+    padding: 15px;
+    text-align: left;
+  }
+  
+  .destino-info h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .destino-info p {
+    margin: 5px 0;
+    color: #555;
+  }
+  
+  .precio {
+    font-weight: bold;
+    color: #ff5733;
+  }
+  
+  .puntos {
+    font-size: 0.9rem;
+    color: #888;
+  }
+  

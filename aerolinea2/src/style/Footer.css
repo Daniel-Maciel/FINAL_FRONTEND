@@ -1,0 +1,60 @@
+.footer {
+    background-color: #3b3939;
+    color: #fff;
+    padding: 20px 0;
+    margin-top: 50px;
+    width: 100%; /* Se asegura de que ocupe todo el ancho */
+    position: relative; /* Útil para mantenerlo dentro del flujo de la página */
+  }
+  
+  .footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  .footer-container > div {
+    flex: 1;
+    margin: 10px;
+  }
+  
+  .contacto h4,
+  .mapa h4,
+  .redes-sociales h4 {
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+    color: #ff5733;
+  }
+  
+  .contacto p {
+    margin: 5px 0;
+    font-size: 0.9rem;
+  }
+  
+  .mapa iframe {
+    border: none;
+    border-radius: 8px;
+  }
+  
+  .redes-sociales .iconos-redes {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+  }
+  
+  .redes-sociales a {
+    color: #fff;
+    font-size: 1.5rem;
+    text-decoration: none;
+    transition: transform 0.3s ease, color 0.3s ease;
+  }
+  
+  .redes-sociales a:hover {
+    color: #ff5733;
+    transform: scale(1.2);
+  }
+  

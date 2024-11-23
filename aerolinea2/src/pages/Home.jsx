@@ -1,15 +1,23 @@
 // src/pages/Home.jsx
 import React, { useState } from 'react';
 import '../style/Home.css';
+import Destinos from '../components/Destinos';
+import Footer from '../components/Footer';
 
 export default function Home() {
   const [origen, setOrigen] = useState('');
   const [destino, setDestino] = useState('');
   const [fechaSalida, setFechaSalida] = useState('');
-  const [vuelo, setVuelos] = useState([]);
+  const [vuelos, setVuelos] = useState([]);
   const [error, setError] = useState('');
 
   const buscarVuelos = async () => {
+    // Validar si los campos están vacíos
+  if (!origen || !destino || !fechaSalida) {
+    setError('Por favor, completa todos los campos antes de buscar.');
+    setVuelos([]); // Limpiar la lista de vuelos
+    return;
+  }
     const url = `http://localhost:8081/vuelo?origen=${origen}&destino=${destino}&fechaSalida=${fechaSalida}`;
     
     try {
@@ -26,62 +34,80 @@ export default function Home() {
       }
 
       const data = await response.json();
+
+    if (data.length === 0) {
+      setError(`No hay vuelos disponibles para el origen "${origen}", destino "${destino}" y fecha "${fechaSalida}".`);
+    } else {
       setVuelos(data);
       setError('');
-    } catch (err) {
-      setError(err.message);
-      setVuelos([]);
     }
+  } catch (err) {
+    setError(err.message);
+    setVuelos([]);
+  }
   };
 
   return (
     <div className="home">
-      <h1>Busca tu vuelo</h1>
+      <h1>LATAM Airlines</h1>
       <div className="buscador-vuelos">
-        <label>
-          Origen:
-          <input
-            type="text"
-            value={origen}
-            onChange={(e) => setOrigen(e.target.value)}
-          />
-        </label>
-        <label>
-          Destino:
-          <input
-            type="text"
-            value={destino}
-            onChange={(e) => setDestino(e.target.value)}
-          />
-        </label>
-        <label>
-          Fecha de salida:
-          <input
-            type="date"
-            value={fechaSalida}
-            onChange={(e) => setFechaSalida(e.target.value)}
-          />
-        </label>
-        <button onClick={buscarVuelos}>Buscar vuelos</button>
+        <div className="form-row">
+          <div className="form-group">
+            <label htmlFor="origen">Origen:</label>
+            <input
+              id="origen"
+              type="text"
+              placeholder="Ingresa desde dónde..."
+              value={origen}
+              onChange={(e) => setOrigen(e.target.value)}
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="destino">Destino:</label>
+            <input
+              id="destino"
+              type="text"
+              placeholder="Ingresa hacia dónde..."
+              value={destino}
+              onChange={(e) => setDestino(e.target.value)}
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="fechaSalida">Fecha de salida:</label>
+            <input
+              id="fechaSalida"
+              type="date"
+              value={fechaSalida}
+              onChange={(e) => setFechaSalida(e.target.value)}
+            />
+          </div>
+        </div>
+        {/* <button onClick={buscarVuelos}>Buscar vuelos</button> */}
+        <button onClick={() => { console.log('Buscando vuelos...'); buscarVuelos(); }}>Buscar vuelos</button>
+
       </div>
 
-      {error && <p style={{ color: 'red' }}>{error}</p>}
+      {error && <p style={{ color: 'red', marginTop: '10px' }}>{error}</p>}
 
       <div className="lista-vuelos">
-        {vuelo.length > 0 ? (
-          vuelo.map((vuelo) => (
-            <div key={vuelo.id} className="vuelo">
-              <h3>Vuelo {vuelo.numeroVuelo}</h3>
-              <p>Origen: {vuelo.origen}</p>
-              <p>Destino: {vuelo.destino}</p>
-              <p>Fecha de salida: {vuelo.fechaSalida}</p>
-              <p>Precio: ${vuelo.precio}</p>
-            </div>
-          ))
-        ) : (
-          <p>No hay vuelos disponibles.</p>
-        )}
+     {vuelos.length > 0 ? (
+     vuelos.map((vuelo) => (
+      <div key={vuelo.id_vuelo} className="vuelo">
+        <h3>Vuelo {vuelo.numero_vuelo}</h3>
+        <p>Origen: {vuelo.origen}</p>
+        <p>Destino: {vuelo.destino}</p>
+        <p>Fecha de salida: {new Date(vuelo.fecha_salida).toLocaleString()}</p> {/* Formato de fecha */}
+        <p>Fecha de llegada: {new Date(vuelo.fecha_llegada).toLocaleString()}</p> {/* Formato de fecha */}
       </div>
+    ))
+  ) : (
+    <p>No hay vuelos disponibles.</p>
+  )}
+</div>
+
+      <Destinos />
+      <Footer /> 
     </div>
+    
   );
 }

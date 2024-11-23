@@ -9,7 +9,7 @@ import Nosotros from './pages/Nosotros';
 import Login from './pages/Login';
 import Reservas from './pages/Reservas';
 import Navbar from './components/Navbar';
-import ProtectedRoute from './components/ProtectedRoute';
+import PrivateRoute from './components/PrivateRoute';
 import Register from './pages/Register';
 
 function App() {
@@ -18,7 +18,7 @@ function App() {
 
   return (
     <Router>
-    <Navbar /> 
+      <Navbar /> 
       <Routes>
         {/* Ruta abierta */}
         <Route path="/" element={<Home />} />
@@ -27,46 +27,46 @@ function App() {
         <Route path="/login" element={<Login setIsAuthenticated={setIsAuthenticated} />} />
 
         <Route path="/register" element={<Register />} />
-      
+
         {/* Rutas protegidas */}
         <Route
           path="/vuelos"
           element={
-            <ProtectedRoute isAuthenticated={isAuthenticated}>
+            <PrivateRoute isAuthenticated={isAuthenticated}>
               <Vuelos />
-            </ProtectedRoute>
+            </PrivateRoute>
           }
         />
         <Route
           path="/asientos"
           element={
-            <ProtectedRoute isAuthenticated={isAuthenticated}>
+            <PrivateRoute isAuthenticated={isAuthenticated}>
               <Asientos />
-            </ProtectedRoute>
+            </PrivateRoute>
           }
         />
         <Route
           path="/aviones"
           element={
-            <ProtectedRoute isAuthenticated={isAuthenticated}>
+            <PrivateRoute isAuthenticated={isAuthenticated}>
               <Aviones />
-            </ProtectedRoute>
+            </PrivateRoute>
           }
         />
         <Route
           path="/reservas"
           element={
-            <ProtectedRoute isAuthenticated={isAuthenticated}>
+            <PrivateRoute isAuthenticated={isAuthenticated}>
               <Reservas />
-            </ProtectedRoute>
+            </PrivateRoute>
           }
         />
         <Route
           path="/nosotros"
           element={
-            <ProtectedRoute isAuthenticated={isAuthenticated}>
+            <PrivateRoute isAuthenticated={isAuthenticated}>
               <Nosotros />
-            </ProtectedRoute>
+            </PrivateRoute>
           }
         />
       </Routes>

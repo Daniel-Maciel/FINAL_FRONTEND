@@ -3,27 +3,27 @@
 .home {
   height: 100vh; /* Ocupa toda la pantalla */
   width: 100vw; /* Ocupa todo el ancho */
-  background: url('../assets/home.webp') no-repeat center center/cover; /* Imagen centrada */
+  background: url('../assets/home.webp') no-repeat center top/cover; /* Imagen centrada */
   display: flex;
   flex-direction: column;
-  justify-content: flex-end; /* Coloca los elementos al final de la pantalla */
+  justify-content: flex-start; /* Alinea los elementos hacia arriba */
   align-items: center;
-  padding: 20px;
+  padding-top: 350px; /* Ajusta esta distancia para posicionar el formulario debajo del avión */
   box-sizing: border-box;
   color: white;
 }
 
 /* Título principal */
 .home h1 {
-  font-size: 1.8rem;
+  font-size: 2rem;
   font-weight: bold;
-  margin-bottom: 30px; /* Espaciado del título con el formulario */
+  margin-bottom: 20px; /* Espaciado del título con el formulario */
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Sombra para visibilidad */
 }
 
 /* Contenedor del formulario */
 .buscador-vuelos {
-  background-color: rgba(0, 0, 0, 0.7); /* Fondo semitransparente */
+  background-color: rgba(61, 34, 161, 0.349); /* Fondo púrpura semitransparente */
   padding: 20px 30px;
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
@@ -31,7 +31,7 @@
   flex-direction: column;
   width: 90%;
   max-width: 800px;
-  margin-bottom: 50px; /* Espacio inferior */
+  margin-top: 20px; /* Espacio adicional */
 }
 
 /* Contenedor horizontal para los campos */
@@ -69,7 +69,7 @@
   font-size: 1rem;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  align-self: flex-end; /* Botón alineado a la derecha */
+  align-self: center; /* Botón centrado */
 }
 
 .buscador-vuelos button:hover {
@@ -82,4 +82,22 @@
   margin-bottom: 5px;
   color: white;
   display: block;
+}
+.lista-vuelos {
+  background-color: #fff; /* Fondo blanco */
+  color: #000; /* Texto en negro */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Agregar sombra para darle un poco de separación */
+}
+
+.vuelo {
+  margin-bottom: 15px;
+  padding: 10px;
+  border: 1px solid #ddd; /* Borde gris claro */
+  border-radius: 5px;
+}
+
+.vuelo h3, .vuelo p {
+  color: #000; /* Asegura que el texto sea negro */
 }
