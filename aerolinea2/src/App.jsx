@@ -11,6 +11,7 @@ import Reservas from './pages/Reservas';
 import Navbar from './components/Navbar';
 import PrivateRoute from './components/PrivateRoute';
 import Register from './pages/Register';
+import CrearReserva from './pages/CrearReserva';
 
 function App() {
   // Estado para manejar autenticación (ejemplo: falso por defecto)
@@ -58,6 +59,15 @@ function App() {
           element={
             <PrivateRoute isAuthenticated={isAuthenticated}>
               <Reservas />
+            </PrivateRoute>
+            
+          }
+        />
+        <Route
+          path="/reservas/crear"
+          element={
+            <PrivateRoute isAuthenticated={isAuthenticated}>
+              <CrearReserva />
             </PrivateRoute>
           }
         />

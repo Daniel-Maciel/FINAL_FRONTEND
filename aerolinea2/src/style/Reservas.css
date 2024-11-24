@@ -1,0 +1,59 @@
+/* Reservas.css */
+.boton-crear {
+    margin-bottom: 20px;
+  }
+  
+  .tabla-reservas {
+    margin-bottom: 40px;
+  }
+
+  .tabla-reservas h2 {
+    font-weight: bold;
+  }
+  
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .table th,
+  .table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  .table th {
+    background-color: #aea9d6;
+    text-align: left;
+  }
+  
+  .text-center {
+    text-align: center;
+  }
+  
+  .btn {
+    margin-right: 5px;
+  }
+  
+  .btn-primary {
+    background-color: #007bff;
+    color: white;
+    border: none;
+  }
+  
+  .btn-warning {
+    background-color: #bd9b34;
+    color: white;
+    border: none;
+  }
+  
+  .btn-danger {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+  }
+  
+  .btn:hover {
+    opacity: 0.8;
+  }
+  
