@@ -41,9 +41,11 @@ export default function LoginForm({ setIsAuthenticated }) {
         try {
             const res = await fetch(url, parametros);
             const body = await res.json();
+            console.log('Respuesta del backend:', body); 
 
             if (res.ok) {
                 sessionStorage.setItem('token', body.token);
+                sessionStorage.setItem('id_rol', body.datos.id_rol); // Guardar id_rol
                 setIsAuthenticated(true);
                 toast.success(`Bienvenido ${body.datos.nombre}`, confToast);
                 navigate("/");

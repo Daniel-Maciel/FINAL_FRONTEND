@@ -49,7 +49,7 @@ export default function Home() {
 
   return (
     <div className="home">
-      <h1>LATAM Airlines</h1>
+      <h1> Airlines</h1>
       <div className="buscador-vuelos">
         <div className="form-row">
           <div className="form-group">
@@ -100,9 +100,11 @@ export default function Home() {
         <p>Fecha de llegada: {new Date(vuelo.fecha_llegada).toLocaleString()}</p> {/* Formato de fecha */}
       </div>
     ))
-  ) : (
-    <p>No hay vuelos disponibles.</p>
-  )}
+      ) :
+       (
+     <p> </p>
+     )
+  }
 </div>
 
       <Destinos />

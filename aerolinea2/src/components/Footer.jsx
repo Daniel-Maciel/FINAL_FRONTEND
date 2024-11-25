@@ -10,7 +10,7 @@ const Footer = () => {
           <h3>Contáctanos</h3>
           <p>Dirección: Calle Falsa 123, Buenos Aires, Argentina</p>
           <p>Teléfono: +54 11 1234-5678</p>
-          <p>Email: contacto@latamairlines.com</p>
+          <p>Email: contacto@airlines.com</p>
         </div>
         <div className="social-icons">
           <h3>Síguenos</h3>

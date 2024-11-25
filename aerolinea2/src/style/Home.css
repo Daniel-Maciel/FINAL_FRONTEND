@@ -84,7 +84,7 @@
   display: block;
 }
 .lista-vuelos {
-  background-color: #fff; /* Fondo blanco */
+  background-color: #1a1a3d; /* Fondo blanco */
   color: #000; /* Texto en negro */
   padding: 20px;
   border-radius: 8px;
@@ -94,10 +94,10 @@
 .vuelo {
   margin-bottom: 15px;
   padding: 10px;
-  border: 1px solid #ddd; /* Borde gris claro */
+  border: 1px solid #fdfdfd; /* Borde gris claro */
   border-radius: 5px;
 }
 
 .vuelo h3, .vuelo p {
-  color: #000; /* Asegura que el texto sea negro */
+  color: #fcf9f9; /* Asegura que el texto sea negro */
 }

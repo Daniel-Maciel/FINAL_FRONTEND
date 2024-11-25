@@ -1,0 +1,94 @@
+/* Aviones.module.css */
+.aviones-container {
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #1a1a3d;
+    color: #ffffff;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+}
+
+.aviones-h2 {
+    font-size: 2rem;
+    text-align: center;
+    color: #ffd700;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: bold;
+}
+
+.aviones-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.aviones-thead th {
+    background-color: #333366;
+    color: #fff;
+    padding: 15px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.aviones-tbody tr {
+    text-align: center;
+}
+
+.aviones-tbody tr:nth-child(even) {
+    background-color: #333366;
+    color: #ffffff;
+}
+
+.aviones-tbody tr:nth-child(odd) {
+    background-color: #8a85c9;
+    color: #000000;
+}
+
+.aviones-td,
+th {
+    border: 1px solid #ffffff;
+    padding: 10px;
+}
+
+.aviones-error {
+    color: #ff4d4d;
+    margin: 15px 0;
+    font-size: 1rem;
+    text-align: center;
+}
+
+.aviones-empty {
+    text-align: center;
+    color: #ccc;
+    font-size: 1.1rem;
+    padding: 20px 0;
+}
+
+.fila-par {
+    background-color: #333366; /* Tono violeta oscuro */
+    color: #ffffff;
+}
+
+.fila-impar {
+    background-color: #8a85c9; /* Tono violeta claro */
+    color: #000000;
+}
+
+
+@media (max-width: 768px) {
+    .aviones-h2 {
+        font-size: 1.5rem;
+    }
+
+    .aviones-table {
+        font-size: 0.9rem;
+    }
+
+    .aviones-td,
+    th {
+        padding: 8px;
+    }
+}

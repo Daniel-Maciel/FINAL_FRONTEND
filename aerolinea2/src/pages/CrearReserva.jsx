@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import '../style/CrearReserva.css'; 
+import '../style/Crear.css'; 
 
 export default function CrearReserva() {
   const [id_usuario, setIdUsuario] = useState('');

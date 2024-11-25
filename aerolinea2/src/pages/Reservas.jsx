@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+// import 'react-toastify/dist/ReactToastify.css';
 import '../style/Reservas.css';
 
 export default function Reservas() {
@@ -164,6 +164,7 @@ export default function Reservas() {
 
   return (
     <>
+       <h2>Todas las Reservas</h2>
       <div className="boton-crear">
         <Link to={`/reservas/crear`} className="btn btn-primary">
           <span className="material-symbols-outlined">Crear</span>

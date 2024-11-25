@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+// import 'react-toastify/dist/ReactToastify.css';
 
 export default function Vuelo() {
 
@@ -81,8 +81,8 @@ export default function Vuelo() {
 
   return (
       <>
-          <div>
-
+           <h2>Todos los Vuelos</h2>  
+            <div>
               <Link to={`/vuelo/crear/`} className='btn btn-primary'>
                   <span className="material-symbols-outlined">Crear</span>
               </Link>

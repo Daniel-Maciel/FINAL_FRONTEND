@@ -79,6 +79,7 @@ export default function Asiento() {
 
   return (
       <>
+           <h2>Todos los Asientos</h2>
           <div>
 
               <Link to={`/asiento/crear/`} className='btn btn-primary'>
@@ -96,7 +97,7 @@ export default function Asiento() {
                       <th>Numero Asiento</th>
                       <th>Clase</th>
                       <th>Estado</th>
-                               
+                      <th>Acciones</th>        
                      </tr>
               </thead>
               <tbody>

@@ -12,14 +12,22 @@ import Navbar from './components/Navbar';
 import PrivateRoute from './components/PrivateRoute';
 import Register from './pages/Register';
 import CrearReserva from './pages/CrearReserva';
+import CrearAvion from './pages/CrearAvion';
+import EliminarAvion from './pages/EliminarAvion';
+import Usuarios from './pages/Usuarios';
 
 function App() {
-  // Estado para manejar autenticación (ejemplo: falso por defecto)
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  // Estado para manejar autenticación 
+  const [isAuthenticated, setIsAuthenticated] = useState(!!sessionStorage.getItem('token'));
+
+    const handleLogout = () => {
+        sessionStorage.clear(); // Eliminar el token y otros datos de sesión
+        setIsAuthenticated(false);
+  };
 
   return (
     <Router>
-      <Navbar /> 
+       <Navbar isAuthenticated={isAuthenticated} handleLogout={handleLogout} />
       <Routes>
         {/* Ruta abierta */}
         <Route path="/" element={<Home />} />
@@ -55,6 +63,22 @@ function App() {
           }
         />
         <Route
+          path="/aviones/crear"
+          element={
+            <PrivateRoute isAuthenticated={isAuthenticated}>
+              <CrearAvion />
+            </PrivateRoute>
+          }
+        />
+         <Route
+          path="/aviones/eliminar/:idAvion"
+          element={
+            <PrivateRoute isAuthenticated={isAuthenticated}>
+              <EliminarAvion />
+            </PrivateRoute>
+          }
+        />
+        <Route
           path="/reservas"
           element={
             <PrivateRoute isAuthenticated={isAuthenticated}>
@@ -76,6 +100,15 @@ function App() {
           element={
             <PrivateRoute isAuthenticated={isAuthenticated}>
               <Nosotros />
+            </PrivateRoute>
+          }
+        />
+        {/* Ruta para ver los usuarios, solo accesible para los admin (id_rol: 2) */}
+        <Route
+          path="/usuarios"
+          element={
+            <PrivateRoute isAuthenticated={isAuthenticated}>
+              <Usuarios /> {/* Este componente ya verifica el rol dentro de él */}
             </PrivateRoute>
           }
         />

@@ -1,19 +1,68 @@
 /* Navbar.css */
+/* General styling for the navbar */
 .navbar {
-    display: flex;
-    justify-content: space-around;
-    padding: 10px;
-    background-color: #333;
-  }
-  
-  .navbar-item {
-    color: white;
-    text-decoration: none;
-    padding: 10px;
-  }
-  
-  .navbar-item:hover {
-    background-color: #555;
-    border-radius: 5px;
-  }
-  
+  background-color: #1a1a3d; /* Fondo del navbar */
+  padding: 10px 20px;
+  border-bottom: 2px solid #1a1a3d;
+}
+
+/* Estilos para la lista */
+.navbar-list {
+  list-style: none;
+  display: flex;
+  align-items: center; /* Centrar verticalmente */
+  justify-content: flex-end; /* Alinear al lado derecho */
+  width: 100%; /* Ocupa el ancho completo */
+  margin: 0;
+  padding: 0;
+}
+
+/* Estilos generales para los enlaces */
+.navbar-list li {
+  margin: 0 10px;
+}
+
+.navbar-list li a {
+  text-decoration: none;
+  color: #fdfdfd;
+  font-weight: bold;
+  padding: 8px 12px;
+  border-radius: 4px;
+}
+
+.navbar-list li a:hover {
+  background-color: #ddd;
+}
+
+/* Botón de Cerrar Sesión */
+.logout-button {
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.logout-button:hover {
+  background-color: #e60000;
+}
+
+/* Botón de Iniciar Sesión */
+.login-button {
+  background-color: #007bff;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.login-button:hover {
+  background-color: #0056b3;
+}
+
+.navbar-logo {
+  height: 30px; /* Ajusta el tamaño según tu diseño */
+  margin-right: 10px; /* Espaciado entre el logo y los enlaces */
+}
