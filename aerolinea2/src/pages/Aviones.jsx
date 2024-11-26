@@ -56,42 +56,17 @@ export default function Avion() {
     );
   };
 
-  const filas = avion.map((avion, index) => (
-    <tr 
-      key={index}
-      className={
-        index % 2 === 0 
-          ? styles['fila-par'] 
-          : styles['fila-impar']
-      }
-    >
-      <td className={styles['aviones-td']}>{avion.id_avion}</td>
-      <td className={styles['aviones-td']}>{avion.modelo}</td>
-      <td className={styles['aviones-td']}>{avion.capacidad}</td>
-      <td className={styles['aviones-td']}>{avion.aerolinea}</td>
-      <td className={styles['aviones-td']}>
-        <Link to={`/avion/edit/${avion.id}`} className="btn btn-primary">
-          <span className="material-symbols-outlined">Editar</span>
-        </Link>
-        <EliminarAvion
-          avionId={avion.id_avion}
-          onAvionEliminado={onAvionEliminado}
-        />
-      </td>
-    </tr>
-  ));
-
   return (
     <>
-      <div className={styles['aviones-container']}>
-        <h2 className={styles['aviones-h2']}>Todos los Aviones</h2>
-        <Link to={`/aviones/crear/`} className="btn btn-primary">
-          <span className="material-symbols-outlined">Crear</span>
+      <div className={styles['container']}>
+        <h2 className={styles['h2']}>Lista de Aviones</h2>
+        <Link to={`/aviones/crear/`} className={styles['btn-crear']}>
+          Crear
         </Link>
       </div>
-
-      <table className={`${styles["aviones-table"]} table`}>
-        <thead className={styles['aviones-thead']}>
+  
+      <table className={styles["table"]}>
+        <thead>
           <tr>
             <th>ID Avión</th>
             <th>Modelo</th>
@@ -100,18 +75,43 @@ export default function Avion() {
             <th>Acciones</th>
           </tr>
         </thead>
-        <tbody className={styles['aviones-tbody']}>
+        <tbody>
           {avion.length === 0 ? (
             <tr>
-              <td colSpan="5" className={styles['aviones-empty']}>
+              <td colSpan="5" className={styles['empty']}>
                 No hay aviones registrados
               </td>
             </tr>
           ) : (
-            filas
+            avion.map((avion, index) => (
+              <tr 
+                key={index}
+                className={
+                  index % 2 === 0 
+                    ? styles['fila-par'] 
+                    : styles['fila-impar']
+                }
+              >
+                <td className={styles['aviones-td']}>{avion.id_avion}</td>
+                <td className={styles['aviones-td']}>{avion.modelo}</td>
+                <td className={styles['aviones-td']}>{avion.capacidad}</td>
+                <td className={styles['aviones-td']}>{avion.aerolinea}</td>
+                <td className={`${styles['aviones-td']} ${styles['acciones']}`}>
+                <Link to={`/avion/edit/${avion.id}`} className={`${styles['btn-primary']}`}>
+                Editar
+                </Link>
+                <EliminarAvion
+                avionId={avion.id_avion}
+                onAvionEliminado={onAvionEliminado}
+                className={`${styles['btn-eliminar']}`}
+               />
+               </td>
+              </tr>
+            ))
           )}
         </tbody>
       </table>
     </>
   );
+  
 }
