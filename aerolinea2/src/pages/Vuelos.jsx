@@ -64,8 +64,9 @@ export default function Vuelo() {
               Crear
             </Link>
           </div>
-      
-          <table className={styles["table"]}>
+           
+           <div className={styles['container']}>
+           <table className={styles["table"]}>
             <thead>
               <tr>
                  <th>ID Vuelo</th>
@@ -116,6 +117,7 @@ export default function Vuelo() {
               )}
             </tbody>
           </table>
+          </div>
         </>
     );
       

@@ -1,0 +1,118 @@
+/* Reservas.module.css */
+.container {
+  display: flex;
+  justify-content: space-between; /* Título a la izquierda, botón a la derecha */
+  align-items: center;
+  margin: 20px auto;
+  padding: 20px;
+  width: 90%;
+  background-color: #1a1a3d;
+  color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.h2 {
+  font-size: 1.8rem;
+  text-align: center;
+  color: #ffd700;
+  margin-bottom: 0px;  /* Alinear verticalmente con el botón Crear */
+  font-weight: bold;
+}
+
+.table {
+  width: 100%;
+  margin: 0 auto;
+  border-collapse: collapse;
+  text-align: center;
+}
+
+.table th {
+  background-color: #333366;
+  color: #fff;
+  padding: 10px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.table td {
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+
+.table tbody tr:nth-child(even) {
+  background-color: #333366;
+  color: #fff;
+}
+
+.table tbody tr:nth-child(odd) {
+  background-color: #8a85c9;
+  color: #000;
+}
+
+.acciones {
+  display: flex;
+  justify-content: center;
+  gap: 10px; /* Espacio entre botones */
+}
+
+.btn {
+  display: inline-block;
+  padding: 8px 16px;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  text-align: center;
+  cursor: pointer;
+  border: none;
+}
+
+.btn-crear {
+  background-color: #28a745;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: bold;
+  font-size: 0.9rem;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.empty {
+  text-align: center;
+  color: #ccc;
+  font-size: 1.1rem;
+  padding: 20px 0;
+}
+
+.btn-eliminar {
+  background-color: #dc3545;
+  color: #fff;
+}
+
+.btn-primary,
+.btn-eliminar {
+  display: inline-block;
+  padding: 10px 20px; /* Tamaño uniforme */
+  font-size: 0.9rem; /* Tamaño de texto igual */
+  border-radius: 5px;
+  text-align: center;
+  cursor: pointer;
+  border: none;
+  min-width: 100px; /* Asegura el mismo ancho mínimo */
+
+}
+
+.btn-primary {
+  background-color: #007bff;
+  color: #ffffff;
+  text-decoration: none;
+ 
+}
+
+.btn-eliminar {
+  background-color: #dc3545;
+  color: #fff;
+}

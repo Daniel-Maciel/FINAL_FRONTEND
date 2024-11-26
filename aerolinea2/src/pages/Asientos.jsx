@@ -67,8 +67,9 @@ export default function Asiento() {
               Crear
             </Link>
           </div>
-      
-          <table className={styles["table"]}>
+
+          <div className={styles['container']}>
+           <table className={styles["table"]}>
             <thead>
               <tr>
                 <th>ID Asiento</th>
@@ -114,8 +115,9 @@ export default function Asiento() {
                   </tr>
                 ))
               )}
-            </tbody>
-          </table>
+              </tbody>
+            </table>
+          </div>
         </>
     );
       

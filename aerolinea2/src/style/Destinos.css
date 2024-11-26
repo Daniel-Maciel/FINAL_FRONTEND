@@ -9,7 +9,9 @@
     font-size: 2rem;
     margin-bottom: 20px;
     font-weight: bold;
-    color: #333;
+    color: #1a1a3d;
+    justify-content: space-between;
+    
   }
   
   .destinos-grid {
@@ -24,7 +26,7 @@
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    background-color: #fff;
+    background-color: #1a1a3d;
     transition: transform 0.3s ease;
   }
   
@@ -47,12 +49,12 @@
     font-size: 1.2rem;
     margin-bottom: 10px;
     font-weight: bold;
-    color: #333;
+    color: #fcfbfb;
   }
   
   .destino-info p {
     margin: 5px 0;
-    color: #555;
+    color: #faf9f9;
   }
   
   .precio {

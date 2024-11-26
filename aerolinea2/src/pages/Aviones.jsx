@@ -64,8 +64,8 @@ export default function Avion() {
           Crear
         </Link>
       </div>
-  
-      <table className={styles["table"]}>
+      <div className={styles['container']}>
+        <table className={styles["table"]}>
         <thead>
           <tr>
             <th>ID Avión</th>
@@ -111,6 +111,7 @@ export default function Avion() {
           )}
         </tbody>
       </table>
+      </div>
     </>
   );
   

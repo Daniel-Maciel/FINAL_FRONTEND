@@ -49,7 +49,7 @@ export default function Home() {
 
   return (
     <div className="home">
-      <h1> Airlines</h1>
+      <h1> </h1>
       <div className="buscador-vuelos">
         <div className="form-row">
           <div className="form-group">

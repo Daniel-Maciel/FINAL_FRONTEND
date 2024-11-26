@@ -1,60 +1,66 @@
+/* Footer General */
 .footer {
-    background-color: #3b3939;
-    color: #fff;
-    padding: 20px 0;
-    margin-top: 50px;
-    width: 100%; /* Se asegura de que ocupe todo el ancho */
-    position: relative; /* Útil para mantenerlo dentro del flujo de la página */
-  }
-  
-  .footer-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    align-items: flex-start;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-  }
-  
-  .footer-container > div {
-    flex: 1;
-    margin: 10px;
-  }
-  
-  .contacto h4,
-  .mapa h4,
-  .redes-sociales h4 {
-    margin-bottom: 10px;
-    font-size: 1.2rem;
-    color: #ff5733;
-  }
-  
-  .contacto p {
-    margin: 5px 0;
-    font-size: 0.9rem;
-  }
-  
-  .mapa iframe {
-    border: none;
-    border-radius: 8px;
-  }
-  
-  .redes-sociales .iconos-redes {
-    display: flex;
-    gap: 10px;
-    margin-top: 10px;
-  }
-  
-  .redes-sociales a {
-    color: #fff;
-    font-size: 1.5rem;
-    text-decoration: none;
-    transition: transform 0.3s ease, color 0.3s ease;
-  }
-  
-  .redes-sociales a:hover {
-    color: #ff5733;
-    transform: scale(1.2);
-  }
-  
+  background-color: #1a1a3d;
+  color: white;
+  padding: 40px 150px;
+  font-family: Arial, sans-serif;
+  border-radius: 12px;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap; /* Para hacer que las columnas se ajusten en pantallas pequeñas */
+  gap: 20px;
+}
+
+/* Columnas del footer */
+.footer-column {
+  flex: 1;
+  min-width: 200px; /* Ancho mínimo para pantallas pequeñas */
+}
+
+.footer-column h3 {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-column ul li {
+  margin-bottom: 10px;
+}
+
+.footer-column ul li a {
+  text-decoration: none;
+  color: white;
+}
+
+.footer-column ul li a:hover {
+  text-decoration: underline;
+}
+
+/* Mapa */
+.map-container {
+  margin-top: 10px;
+}
+
+/* Iconos de redes sociales */
+.social-icons {
+  margin-top: 15px;
+}
+
+.social-icons a {
+  margin-right: 10px;
+  font-size: 20px;
+  color: white;
+  text-decoration: none;
+}
+
+.social-icons a:hover {
+  color: #007bff;
+}

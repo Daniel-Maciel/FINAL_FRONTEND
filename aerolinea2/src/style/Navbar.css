@@ -1,6 +1,9 @@
 /* Navbar.css */
 /* General styling for the navbar */
 .navbar {
+  display: flex; /* Usar flexbox para alinear los elementos */
+  align-items: center; /* Alinear verticalmente en el centro */
+  justify-content: space-between; /* Espaciar los elementos: logo a la izquierda y enlaces a la derecha */
   background-color: #1a1a3d; /* Fondo del navbar */
   padding: 10px 20px;
   border-bottom: 2px solid #1a1a3d;
@@ -11,8 +14,8 @@
   list-style: none;
   display: flex;
   align-items: center; /* Centrar verticalmente */
-  justify-content: flex-end; /* Alinear al lado derecho */
-  width: 100%; /* Ocupa el ancho completo */
+  /* justify-content: flex-end; /* Alinear al lado derecho */
+  /* width: 100%; Ocupa el ancho completo  */
   margin: 0;
   padding: 0;
 }

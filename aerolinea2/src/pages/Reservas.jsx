@@ -2,8 +2,10 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
-// import 'react-toastify/dist/ReactToastify.css';
-import '../style/Reservas.css';
+import 'react-toastify/dist/ReactToastify.css';
+import styles from '../style/Reservas.module.css';
+import EliminarReserva from './EliminarReserva';
+import '../style/Eliminar.css'; 
 
 export default function Reservas() {
   const [reservas, setReservas] = useState([]);
@@ -20,7 +22,6 @@ export default function Reservas() {
     theme: 'light',
   };
 
-  // Función para obtener las reservas desde el backend
   useEffect(() => {
     const obtenerReservas = async () => {
       setCargando(true);
@@ -51,37 +52,36 @@ export default function Reservas() {
     obtenerReservas();
   }, []);
 
-  // Función para eliminar una reserva
+  // Función para actualizar la lista tras eliminar un avión
+  const onReservaEliminado = (idEliminado) => {
+    setReservas((prevReserva) =>
+      prevReserva.filter((reserva) => reserva.id_reserva !== idEliminado)
+    );
+  };
+
   const eliminarReserva = async (id) => {
     try {
-        const response = await fetch(`http://localhost:8081/reserva/${id}`, {
-            method: 'DELETE',
-            headers: {
-                'Content-Type': 'application/json',
-                authorization: sessionStorage.getItem('token'),
-            },
-        });
+      const response = await fetch(`http://localhost:8081/reserva/${id}`, {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json',
+          authorization: sessionStorage.getItem('token'),
+        },
+      });
 
-        const result = await response.json();
-        
-        if (response.ok) {
-            // Mostrar mensaje de éxito si la reserva fue eliminada
-            toast.success(`Reserva con ID: ${id} eliminada con éxito.`, toastConf);
-            
-            // Actualizar el estado para quitar la reserva eliminada
-            setReservas((prev) => prev.filter((reserva) => reserva.id_reserva !== id));
-        } else {
-            // Mostrar error si no fue posible eliminar la reserva
-            toast.error(result.message || 'Error al eliminar reserva', toastConf);
-        }
+      const result = await response.json();
+
+      if (response.ok) {
+        toast.success(`Reserva con ID: ${id} eliminada con éxito.`, toastConf);
+        setReservas((prev) => prev.filter((reserva) => reserva.id_reserva !== id));
+      } else {
+        toast.error(result.message || 'Error al eliminar reserva', toastConf);
+      }
     } catch (error) {
-        // Mostrar error si ocurrió un problema al realizar la petición
-        toast.error(`Error al eliminar reserva: ${error.message}`, toastConf);
+      toast.error(`Error al eliminar reserva: ${error.message}`, toastConf);
     }
-   };
+  };
 
-
-  // Función para cancelar una reserva
   const cancelarReserva = async (id) => {
     try {
       const response = await fetch(`http://localhost:8081/reserva/${id}`, {
@@ -109,7 +109,6 @@ export default function Reservas() {
     }
   };
 
-  // Función para editar el monto de una reserva
   const editarReserva = async (id) => {
     const nuevoMonto = prompt('Ingrese el nuevo monto de la reserva:');
     if (!nuevoMonto) return;
@@ -140,11 +139,9 @@ export default function Reservas() {
     }
   };
 
-  // Filtrar reservas por estado
   const reservasConfirmadas = reservas.filter((r) => r.estado === 'Confirmada');
   const reservasPendientes = reservas.filter((r) => r.estado === 'Pendiente');
 
-  // Renderizar filas de la tabla
   const renderFilas = (reservas, acciones) =>
     reservas.map((reserva) => (
       <tr key={reserva.id_reserva}>
@@ -156,7 +153,7 @@ export default function Reservas() {
         <td>{new Date(reserva.fecha_reserva).toLocaleString()}</td>
         <td>{reserva.estado}</td>
         <td>{reserva.id_asiento}</td>
-        <td>{acciones(reserva)}</td>
+        <td className={styles['acciones']}>{acciones(reserva)}</td>
       </tr>
     ));
 
@@ -164,16 +161,17 @@ export default function Reservas() {
 
   return (
     <>
-       <h2>Todas las Reservas</h2>
-      <div className="boton-crear">
-        <Link to={`/reservas/crear`} className="btn btn-primary">
+      <div className={styles['container']}>
+        <h2 className={styles['h2']}>Todas las Reservas</h2>
+        <Link to={`/reservas/crear`} className={styles['btn-crear']}>
           <span className="material-symbols-outlined">Crear</span>
         </Link>
       </div>
 
-      <div className="tabla-reservas">
-        <h2>Reservas Confirmadas</h2>
-        <table className="table">
+      <div className={styles['container']}>    
+        <div className={styles['tabla-reservas']}>
+        <h2 className={styles['h2']}>Reservas Confirmadas</h2>
+        <table className={styles['table']}>
           <thead>
             <tr>
               <th>ID Reserva</th>
@@ -190,7 +188,7 @@ export default function Reservas() {
           <tbody>
             {reservasConfirmadas.length === 0 ? (
               <tr>
-                <td colSpan="9" className="text-center">
+                <td colSpan="9" className={styles['empty']}>
                   No hay reservas confirmadas.
                 </td>
               </tr>
@@ -198,27 +196,29 @@ export default function Reservas() {
               renderFilas(reservasConfirmadas, (reserva) => (
                 <>
                   <button
-                    className="btn btn-warning"
+                    className={styles['btn']}
                     onClick={() => cancelarReserva(reserva.id_reserva)}
                   >
                     Cancelar
                   </button>
-                  <button
-                    className="btn btn-danger"
-                    onClick={() => eliminarReserva(reserva.id_reserva)}
-                  >
-                    Eliminar
-                  </button>
+                  
+                  <EliminarReserva
+                    reservaId={reserva.id_reserva}
+                    onReservaEliminado={onReservaEliminado}
+                    className={`${styles['btn-eliminar']}`}
+                  />
                 </>
               ))
             )}
           </tbody>
         </table>
       </div>
+      </div>
 
-      <div className="tabla-reservas">
-        <h2>Reservas Pendientes</h2>
-        <table className="table">
+      <div className={styles['container']}> 
+        <div className={styles['tabla-reservas']}>
+        <h2 className={styles['h2']}>Reservas Pendientes</h2>
+        <table className={styles['table']}>
           <thead>
             <tr>
               <th>ID Reserva</th>
@@ -235,7 +235,7 @@ export default function Reservas() {
           <tbody>
             {reservasPendientes.length === 0 ? (
               <tr>
-                <td colSpan="9" className="text-center">
+                <td colSpan="9" className={styles['empty']}>
                   No hay reservas pendientes.
                 </td>
               </tr>
@@ -243,22 +243,23 @@ export default function Reservas() {
               renderFilas(reservasPendientes, (reserva) => (
                 <>
                   <button
-                    className="btn btn-primary"
+                    className={styles['btn-primary']}
                     onClick={() => editarReserva(reserva.id_reserva)}
                   >
                     Editar
                   </button>
-                  <button
-                    className="btn btn-danger"
-                    onClick={() => eliminarReserva(reserva.id_reserva)}
-                  >
-                    Eliminar
-                  </button>
+                 
+                   <EliminarReserva
+                   reservaId={reserva.id_reserva}
+                   onReservaEliminado={onReservaEliminado}
+                   className={`${styles['btn-eliminar']}`}
+                  />
                 </>
               ))
             )}
           </tbody>
         </table>
+      </div>
       </div>
     </>
   );
